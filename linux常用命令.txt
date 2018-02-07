@@ -1,0 +1,29 @@
+查看tomcat是否启动（XXX为tomcat根目录的名称,可针对性查看tomcat）
+1：ps aux | grep "/data/XXX" | grep -v grep 
+2：ps -ef|grep tomcat    
+
+实时查看关键字
+tailf   /data/weixinWeb/logs/catalina.2017-11-16.out | grep --color 'XXXXXXX'
+
+搜索关键字    
+cat   /data/weixinWeb/logs/catalina.2017-11-16.out | grep --color 'XXXXXXX'   
+
+搜索关键字出现的上下15行
+cat /data/weixinWeb/logs/catalina.2017-11-22.out |grep --color -C 15 'XXXXXXX'
+
+搜索关键字出现的后面15行
+cat /data/weixinWeb/logs/catalina.2017-11-22.out |grep --color -A 15 'XXXXXXX'
+  
+搜索关键字出现的前面15行
+cat /data/weixinWeb/logs/catalina.2017-11-22.out |grep --color -B 15 'XXXXXXX'
+    
+启动tomcat
+cd  tomcatdir/bin
+./ startup.sh
+
+关闭tomcat
+cd  tomcatdir/bin
+./ shutdown.sh
+
+统计日志中40001个数
+grep -c "40001" *.*
